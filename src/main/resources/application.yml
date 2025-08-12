@@ -22,4 +22,12 @@ spring:
             url: "http://127.0.0.1:8081"
         specific:
           avro:
-            reader: "true"
+            reader: "false"
+  datasource:
+    url: jdbc:mysql://localhost:3306/appdb?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: app
+    password: app
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true

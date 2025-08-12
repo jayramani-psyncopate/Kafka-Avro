@@ -23,7 +23,7 @@ public class KafkaAvroProducer {
         send.whenComplete((r, e) -> {
             if (e == null) {
                 log.info(String.format("Sending employee to Kafka: %s", employee.getId()));
-            }else  {
+            }else    {
                 log.info(String.format("Sending employee to Kafka: %s has failed", employee.getId()));
             }
         });

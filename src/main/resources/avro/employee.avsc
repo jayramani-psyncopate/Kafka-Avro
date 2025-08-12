@@ -1,29 +1,11 @@
 {
-  "namespace": "com.kafkaavroschema.dto",
-  "type": "record",
-  "name": "Employee",
-  "fields": [
-    {
-      "name": "id",
-      "type": "string"
-    },
-    {
-      "name": "firstName",
-      "type": "string"
-    },
-    {
-      "name": "middleName",
-      "type": "string",
-      "default": ""
-    },
-    {
-      "name": "lastName",
-      "type": "string"
-    },
-    {
-      "name": "emailId",
-      "type": "string",
-      "default": ""
-    }
-  ]
+  "type":"record",
+  "name":"employees",
+  "fields":[
+    {"name":"id","type":"long"},
+    {"name":"name","type":"string"},
+    {"name":"department","type":["null","string"],"default":null},
+    {"name":"updated_at","type":{"type":"long","connect.version":1,"connect.name":"org.apache.kafka.connect.data.Timestamp"}, "default":null}
+  ],
+  "connect.name":"employees"
 }

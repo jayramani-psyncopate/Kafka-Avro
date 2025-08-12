@@ -13,8 +13,8 @@ import org.apache.avro.message.SchemaStore;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class Employee extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -8504654373370713464L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Employee\",\"namespace\":\"com.kafkaavroschema.dto\",\"fields\":[{\"name\":\"id\",\"type\":\"string\"},{\"name\":\"firstName\",\"type\":\"string\"},{\"name\":\"middleName\",\"type\":\"string\",\"default\":\"\"},{\"name\":\"lastName\",\"type\":\"string\"},{\"name\":\"emailId\",\"type\":\"string\",\"default\":\"\"}]}");
+  private static final long serialVersionUID = -98993663707945507L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Employee\",\"namespace\":\"com.kafkaavroschema.dto\",\"fields\":[{\"name\":\"id\",\"type\":\"long\"},{\"name\":\"name\",\"type\":\"string\"},{\"name\":\"department\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"updated_at\",\"type\":\"long\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -51,11 +51,10 @@ public class Employee extends org.apache.avro.specific.SpecificRecordBase implem
     return DECODER.decode(b);
   }
 
-  @Deprecated public java.lang.CharSequence id;
-  @Deprecated public java.lang.CharSequence firstName;
-  @Deprecated public java.lang.CharSequence middleName;
-  @Deprecated public java.lang.CharSequence lastName;
-  @Deprecated public java.lang.CharSequence emailId;
+  @Deprecated public long id;
+  @Deprecated public java.lang.CharSequence name;
+  @Deprecated public java.lang.CharSequence department;
+  @Deprecated public long updated_at;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -67,17 +66,15 @@ public class Employee extends org.apache.avro.specific.SpecificRecordBase implem
   /**
    * All-args constructor.
    * @param id The new value for id
-   * @param firstName The new value for firstName
-   * @param middleName The new value for middleName
-   * @param lastName The new value for lastName
-   * @param emailId The new value for emailId
+   * @param name The new value for name
+   * @param department The new value for department
+   * @param updated_at The new value for updated_at
    */
-  public Employee(java.lang.CharSequence id, java.lang.CharSequence firstName, java.lang.CharSequence middleName, java.lang.CharSequence lastName, java.lang.CharSequence emailId) {
+  public Employee(java.lang.Long id, java.lang.CharSequence name, java.lang.CharSequence department, java.lang.Long updated_at) {
     this.id = id;
-    this.firstName = firstName;
-    this.middleName = middleName;
-    this.lastName = lastName;
-    this.emailId = emailId;
+    this.name = name;
+    this.department = department;
+    this.updated_at = updated_at;
   }
 
   public org.apache.avro.Schema getSchema() { return SCHEMA$; }
@@ -85,10 +82,9 @@ public class Employee extends org.apache.avro.specific.SpecificRecordBase implem
   public java.lang.Object get(int field$) {
     switch (field$) {
     case 0: return id;
-    case 1: return firstName;
-    case 2: return middleName;
-    case 3: return lastName;
-    case 4: return emailId;
+    case 1: return name;
+    case 2: return department;
+    case 3: return updated_at;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -97,11 +93,10 @@ public class Employee extends org.apache.avro.specific.SpecificRecordBase implem
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: id = (java.lang.CharSequence)value$; break;
-    case 1: firstName = (java.lang.CharSequence)value$; break;
-    case 2: middleName = (java.lang.CharSequence)value$; break;
-    case 3: lastName = (java.lang.CharSequence)value$; break;
-    case 4: emailId = (java.lang.CharSequence)value$; break;
+    case 0: id = (java.lang.Long)value$; break;
+    case 1: name = (java.lang.CharSequence)value$; break;
+    case 2: department = (java.lang.CharSequence)value$; break;
+    case 3: updated_at = (java.lang.Long)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -110,7 +105,7 @@ public class Employee extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'id' field.
    * @return The value of the 'id' field.
    */
-  public java.lang.CharSequence getId() {
+  public java.lang.Long getId() {
     return id;
   }
 
@@ -118,72 +113,56 @@ public class Employee extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'id' field.
    * @param value the value to set.
    */
-  public void setId(java.lang.CharSequence value) {
+  public void setId(java.lang.Long value) {
     this.id = value;
   }
 
   /**
-   * Gets the value of the 'firstName' field.
-   * @return The value of the 'firstName' field.
+   * Gets the value of the 'name' field.
+   * @return The value of the 'name' field.
    */
-  public java.lang.CharSequence getFirstName() {
-    return firstName;
+  public java.lang.CharSequence getName() {
+    return name;
   }
 
   /**
-   * Sets the value of the 'firstName' field.
+   * Sets the value of the 'name' field.
    * @param value the value to set.
    */
-  public void setFirstName(java.lang.CharSequence value) {
-    this.firstName = value;
+  public void setName(java.lang.CharSequence value) {
+    this.name = value;
   }
 
   /**
-   * Gets the value of the 'middleName' field.
-   * @return The value of the 'middleName' field.
+   * Gets the value of the 'department' field.
+   * @return The value of the 'department' field.
    */
-  public java.lang.CharSequence getMiddleName() {
-    return middleName;
+  public java.lang.CharSequence getDepartment() {
+    return department;
   }
 
   /**
-   * Sets the value of the 'middleName' field.
+   * Sets the value of the 'department' field.
    * @param value the value to set.
    */
-  public void setMiddleName(java.lang.CharSequence value) {
-    this.middleName = value;
+  public void setDepartment(java.lang.CharSequence value) {
+    this.department = value;
   }
 
   /**
-   * Gets the value of the 'lastName' field.
-   * @return The value of the 'lastName' field.
+   * Gets the value of the 'updated_at' field.
+   * @return The value of the 'updated_at' field.
    */
-  public java.lang.CharSequence getLastName() {
-    return lastName;
+  public java.lang.Long getUpdatedAt() {
+    return updated_at;
   }
 
   /**
-   * Sets the value of the 'lastName' field.
+   * Sets the value of the 'updated_at' field.
    * @param value the value to set.
    */
-  public void setLastName(java.lang.CharSequence value) {
-    this.lastName = value;
-  }
-
-  /**
-   * Gets the value of the 'emailId' field.
-   * @return The value of the 'emailId' field.
-   */
-  public java.lang.CharSequence getEmailId() {
-    return emailId;
-  }
-
-  /**
-   * Sets the value of the 'emailId' field.
-   * @param value the value to set.
-   */
-  public void setEmailId(java.lang.CharSequence value) {
-    this.emailId = value;
+  public void setUpdatedAt(java.lang.Long value) {
+    this.updated_at = value;
   }
 
   /**
@@ -218,11 +197,10 @@ public class Employee extends org.apache.avro.specific.SpecificRecordBase implem
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<Employee>
     implements org.apache.avro.data.RecordBuilder<Employee> {
 
-    private java.lang.CharSequence id;
-    private java.lang.CharSequence firstName;
-    private java.lang.CharSequence middleName;
-    private java.lang.CharSequence lastName;
-    private java.lang.CharSequence emailId;
+    private long id;
+    private java.lang.CharSequence name;
+    private java.lang.CharSequence department;
+    private long updated_at;
 
     /** Creates a new Builder */
     private Builder() {
@@ -239,21 +217,17 @@ public class Employee extends org.apache.avro.specific.SpecificRecordBase implem
         this.id = data().deepCopy(fields()[0].schema(), other.id);
         fieldSetFlags()[0] = true;
       }
-      if (isValidValue(fields()[1], other.firstName)) {
-        this.firstName = data().deepCopy(fields()[1].schema(), other.firstName);
+      if (isValidValue(fields()[1], other.name)) {
+        this.name = data().deepCopy(fields()[1].schema(), other.name);
         fieldSetFlags()[1] = true;
       }
-      if (isValidValue(fields()[2], other.middleName)) {
-        this.middleName = data().deepCopy(fields()[2].schema(), other.middleName);
+      if (isValidValue(fields()[2], other.department)) {
+        this.department = data().deepCopy(fields()[2].schema(), other.department);
         fieldSetFlags()[2] = true;
       }
-      if (isValidValue(fields()[3], other.lastName)) {
-        this.lastName = data().deepCopy(fields()[3].schema(), other.lastName);
+      if (isValidValue(fields()[3], other.updated_at)) {
+        this.updated_at = data().deepCopy(fields()[3].schema(), other.updated_at);
         fieldSetFlags()[3] = true;
-      }
-      if (isValidValue(fields()[4], other.emailId)) {
-        this.emailId = data().deepCopy(fields()[4].schema(), other.emailId);
-        fieldSetFlags()[4] = true;
       }
     }
 
@@ -267,21 +241,17 @@ public class Employee extends org.apache.avro.specific.SpecificRecordBase implem
         this.id = data().deepCopy(fields()[0].schema(), other.id);
         fieldSetFlags()[0] = true;
       }
-      if (isValidValue(fields()[1], other.firstName)) {
-        this.firstName = data().deepCopy(fields()[1].schema(), other.firstName);
+      if (isValidValue(fields()[1], other.name)) {
+        this.name = data().deepCopy(fields()[1].schema(), other.name);
         fieldSetFlags()[1] = true;
       }
-      if (isValidValue(fields()[2], other.middleName)) {
-        this.middleName = data().deepCopy(fields()[2].schema(), other.middleName);
+      if (isValidValue(fields()[2], other.department)) {
+        this.department = data().deepCopy(fields()[2].schema(), other.department);
         fieldSetFlags()[2] = true;
       }
-      if (isValidValue(fields()[3], other.lastName)) {
-        this.lastName = data().deepCopy(fields()[3].schema(), other.lastName);
+      if (isValidValue(fields()[3], other.updated_at)) {
+        this.updated_at = data().deepCopy(fields()[3].schema(), other.updated_at);
         fieldSetFlags()[3] = true;
-      }
-      if (isValidValue(fields()[4], other.emailId)) {
-        this.emailId = data().deepCopy(fields()[4].schema(), other.emailId);
-        fieldSetFlags()[4] = true;
       }
     }
 
@@ -289,7 +259,7 @@ public class Employee extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'id' field.
       * @return The value.
       */
-    public java.lang.CharSequence getId() {
+    public java.lang.Long getId() {
       return id;
     }
 
@@ -298,7 +268,7 @@ public class Employee extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'id'.
       * @return This builder.
       */
-    public com.kafkaavroschema.dto.Employee.Builder setId(java.lang.CharSequence value) {
+    public com.kafkaavroschema.dto.Employee.Builder setId(long value) {
       validate(fields()[0], value);
       this.id = value;
       fieldSetFlags()[0] = true;
@@ -319,164 +289,123 @@ public class Employee extends org.apache.avro.specific.SpecificRecordBase implem
       * @return This builder.
       */
     public com.kafkaavroschema.dto.Employee.Builder clearId() {
-      id = null;
       fieldSetFlags()[0] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'firstName' field.
+      * Gets the value of the 'name' field.
       * @return The value.
       */
-    public java.lang.CharSequence getFirstName() {
-      return firstName;
+    public java.lang.CharSequence getName() {
+      return name;
     }
 
     /**
-      * Sets the value of the 'firstName' field.
-      * @param value The value of 'firstName'.
+      * Sets the value of the 'name' field.
+      * @param value The value of 'name'.
       * @return This builder.
       */
-    public com.kafkaavroschema.dto.Employee.Builder setFirstName(java.lang.CharSequence value) {
+    public com.kafkaavroschema.dto.Employee.Builder setName(java.lang.CharSequence value) {
       validate(fields()[1], value);
-      this.firstName = value;
+      this.name = value;
       fieldSetFlags()[1] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'firstName' field has been set.
-      * @return True if the 'firstName' field has been set, false otherwise.
+      * Checks whether the 'name' field has been set.
+      * @return True if the 'name' field has been set, false otherwise.
       */
-    public boolean hasFirstName() {
+    public boolean hasName() {
       return fieldSetFlags()[1];
     }
 
 
     /**
-      * Clears the value of the 'firstName' field.
+      * Clears the value of the 'name' field.
       * @return This builder.
       */
-    public com.kafkaavroschema.dto.Employee.Builder clearFirstName() {
-      firstName = null;
+    public com.kafkaavroschema.dto.Employee.Builder clearName() {
+      name = null;
       fieldSetFlags()[1] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'middleName' field.
+      * Gets the value of the 'department' field.
       * @return The value.
       */
-    public java.lang.CharSequence getMiddleName() {
-      return middleName;
+    public java.lang.CharSequence getDepartment() {
+      return department;
     }
 
     /**
-      * Sets the value of the 'middleName' field.
-      * @param value The value of 'middleName'.
+      * Sets the value of the 'department' field.
+      * @param value The value of 'department'.
       * @return This builder.
       */
-    public com.kafkaavroschema.dto.Employee.Builder setMiddleName(java.lang.CharSequence value) {
+    public com.kafkaavroschema.dto.Employee.Builder setDepartment(java.lang.CharSequence value) {
       validate(fields()[2], value);
-      this.middleName = value;
+      this.department = value;
       fieldSetFlags()[2] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'middleName' field has been set.
-      * @return True if the 'middleName' field has been set, false otherwise.
+      * Checks whether the 'department' field has been set.
+      * @return True if the 'department' field has been set, false otherwise.
       */
-    public boolean hasMiddleName() {
+    public boolean hasDepartment() {
       return fieldSetFlags()[2];
     }
 
 
     /**
-      * Clears the value of the 'middleName' field.
+      * Clears the value of the 'department' field.
       * @return This builder.
       */
-    public com.kafkaavroschema.dto.Employee.Builder clearMiddleName() {
-      middleName = null;
+    public com.kafkaavroschema.dto.Employee.Builder clearDepartment() {
+      department = null;
       fieldSetFlags()[2] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'lastName' field.
+      * Gets the value of the 'updated_at' field.
       * @return The value.
       */
-    public java.lang.CharSequence getLastName() {
-      return lastName;
+    public java.lang.Long getUpdatedAt() {
+      return updated_at;
     }
 
     /**
-      * Sets the value of the 'lastName' field.
-      * @param value The value of 'lastName'.
+      * Sets the value of the 'updated_at' field.
+      * @param value The value of 'updated_at'.
       * @return This builder.
       */
-    public com.kafkaavroschema.dto.Employee.Builder setLastName(java.lang.CharSequence value) {
+    public com.kafkaavroschema.dto.Employee.Builder setUpdatedAt(long value) {
       validate(fields()[3], value);
-      this.lastName = value;
+      this.updated_at = value;
       fieldSetFlags()[3] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'lastName' field has been set.
-      * @return True if the 'lastName' field has been set, false otherwise.
+      * Checks whether the 'updated_at' field has been set.
+      * @return True if the 'updated_at' field has been set, false otherwise.
       */
-    public boolean hasLastName() {
+    public boolean hasUpdatedAt() {
       return fieldSetFlags()[3];
     }
 
 
     /**
-      * Clears the value of the 'lastName' field.
+      * Clears the value of the 'updated_at' field.
       * @return This builder.
       */
-    public com.kafkaavroschema.dto.Employee.Builder clearLastName() {
-      lastName = null;
+    public com.kafkaavroschema.dto.Employee.Builder clearUpdatedAt() {
       fieldSetFlags()[3] = false;
-      return this;
-    }
-
-    /**
-      * Gets the value of the 'emailId' field.
-      * @return The value.
-      */
-    public java.lang.CharSequence getEmailId() {
-      return emailId;
-    }
-
-    /**
-      * Sets the value of the 'emailId' field.
-      * @param value The value of 'emailId'.
-      * @return This builder.
-      */
-    public com.kafkaavroschema.dto.Employee.Builder setEmailId(java.lang.CharSequence value) {
-      validate(fields()[4], value);
-      this.emailId = value;
-      fieldSetFlags()[4] = true;
-      return this;
-    }
-
-    /**
-      * Checks whether the 'emailId' field has been set.
-      * @return True if the 'emailId' field has been set, false otherwise.
-      */
-    public boolean hasEmailId() {
-      return fieldSetFlags()[4];
-    }
-
-
-    /**
-      * Clears the value of the 'emailId' field.
-      * @return This builder.
-      */
-    public com.kafkaavroschema.dto.Employee.Builder clearEmailId() {
-      emailId = null;
-      fieldSetFlags()[4] = false;
       return this;
     }
 
@@ -485,11 +414,10 @@ public class Employee extends org.apache.avro.specific.SpecificRecordBase implem
     public Employee build() {
       try {
         Employee record = new Employee();
-        record.id = fieldSetFlags()[0] ? this.id : (java.lang.CharSequence) defaultValue(fields()[0]);
-        record.firstName = fieldSetFlags()[1] ? this.firstName : (java.lang.CharSequence) defaultValue(fields()[1]);
-        record.middleName = fieldSetFlags()[2] ? this.middleName : (java.lang.CharSequence) defaultValue(fields()[2]);
-        record.lastName = fieldSetFlags()[3] ? this.lastName : (java.lang.CharSequence) defaultValue(fields()[3]);
-        record.emailId = fieldSetFlags()[4] ? this.emailId : (java.lang.CharSequence) defaultValue(fields()[4]);
+        record.id = fieldSetFlags()[0] ? this.id : (java.lang.Long) defaultValue(fields()[0]);
+        record.name = fieldSetFlags()[1] ? this.name : (java.lang.CharSequence) defaultValue(fields()[1]);
+        record.department = fieldSetFlags()[2] ? this.department : (java.lang.CharSequence) defaultValue(fields()[2]);
+        record.updated_at = fieldSetFlags()[3] ? this.updated_at : (java.lang.Long) defaultValue(fields()[3]);
         return record;
       } catch (java.lang.Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);
